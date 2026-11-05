@@ -1,0 +1,85 @@
+{
+  "testCase": "Log in as a customer and verify the dashboard is shown",
+  "url": "https://phptravels.net/login",
+  "model": "gemini-3.5-flash-lite",
+  "startedAt": "2026-11-05T22:14:04.346Z",
+  "status": "PASS",
+  "planOutline": [
+    "Navigate to login page",
+    "Fill email and password",
+    "Click submit to log in",
+    "Verify dashboard page and elements are displayed"
+  ],
+  "assumptions": [
+    "CUSTOMER_EMAIL and CUSTOMER_PASSWORD are provided via availableSecretKeys.",
+    "The user has a valid customer account on phptravels.net",
+    "CUSTOMER_EMAIL and CUSTOMER_PASSWORD secrets are available",
+    "Used the credentials provided by availableSecretKeys/page placeholders.",
+    "Demo user credentials worked successfully.",
+    "Dashboard URL and heading confirm successful login."
+  ],
+  "steps": [
+    {
+      "number": 1,
+      "action": "fill",
+      "description": "Fill in the email address for login",
+      "elementId": 10,
+      "target": {
+        "strategy": "placeholder",
+        "value": "Email Address",
+        "name": "email",
+        "exact": true,
+        "nth": 0
+      },
+      "value": "[REDACTED SECRET]",
+      "expected": null,
+      "status": "PASS",
+      "urlAfter": "https://phptravels.net/login",
+      "durationMs": 1409,
+      "result": "Filled input field."
+    },
+    {
+      "number": 2,
+      "action": "fill",
+      "description": "Fill in the password for login",
+      "elementId": 11,
+      "target": {
+        "strategy": "placeholder",
+        "value": "Password",
+        "name": "password",
+        "exact": true,
+        "nth": 0
+      },
+      "value": "[REDACTED SECRET]",
+      "expected": null,
+      "status": "PASS",
+      "urlAfter": "https://phptravels.net/login",
+      "durationMs": 1326,
+      "result": "Filled input field."
+    },
+    {
+      "number": 3,
+      "action": "click",
+      "description": "Click the submit button to log in",
+      "elementId": 14,
+      "target": {
+        "strategy": "text",
+        "value": "login",
+        "name": null,
+        "exact": false,
+        "nth": 0
+      },
+      "value": null,
+      "expected": null,
+      "status": "PASS",
+      "urlAfter": "https://phptravels.net/dashboard",
+      "durationMs": 3015,
+      "result": "Clicked element."
+    }
+  ],
+  "finalUrl": "https://phptravels.net/dashboard",
+  "error": null,
+  "screenshot": null,
+  "finishedAt": "2026-11-05T22:14:22.994Z",
+  "pageTitle": "Dashboard"
+}

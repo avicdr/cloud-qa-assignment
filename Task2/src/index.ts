@@ -10,7 +10,6 @@ import { stdin as input, stdout as output } from "node:process";
 const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
 const ai = new GoogleGenAI({ apiKey });
 
-/* Zod Schemas for runtime validation */
 const LocatorSchema = z.object({
   strategy: z.enum(["role", "label", "placeholder", "text", "testId"]),
   value: z.string(),
@@ -173,7 +172,6 @@ function maskSecrets(value: string | null): string | null {
 }
 
 async function getPageSnapshot(page: Page): Promise<unknown> {
-  // String expression avoids tsx/esbuild injecting a Node-side __name helper in browser context
   return page.evaluate(`(() => {
     const visible = (el) => {
       if (!el || !(el instanceof Element)) return false;
